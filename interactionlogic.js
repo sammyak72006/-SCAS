@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalText.innerHTML = ''; // Clear previous text content
         
         // 3. Open modal wrapper and disable body scroll
+        modal.classList.remove('hidden'); // <-- ADD THIS LINE to allow visibility transitions
         modal.classList.add('is-open');
         document.body.style.overflow = 'hidden';
 
@@ -130,4 +131,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
