@@ -220,7 +220,7 @@
     </footer>
   </main>
 
-      <div id="fullScreenModal" class="fixed inset-0 z-[100] bg-pitch-black/95 overflow-y-auto modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div id="fullScreenModal" class="fixed inset-0 z-[100] bg-pitch-black/95 overflow-y-auto modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
     <button id="closeModalBtn" class="absolute top-6 right-6 md:top-10 md:right-10 text-pure-white hover:text-deep-green transition duration-300 z-50" aria-label="Close dialog">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
@@ -346,8 +346,11 @@
       });
 
       // Initial state setup
+      // The modal-overlay class now handles initial hiding on the main element, 
+      // but keeping this for the content transition is a good practice.
       modalContentArea.classList.add('content-hidden');
     })();
   </script>
 </body>
 </html>
+
