@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Advisory System | Technical Specification Build</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Custom CSS Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="bg-pitch-black text-pure-white antialiased">
+    <!-- Configure Tailwind Colors via script for CSS classes to work -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pitch-black': '#000000',
+                        'deep-green': '#0A3814',
+                        'pure-white': '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-pitch-black/90 backdrop-blur-sm border-b border-gray-900 content-container-fade">
+        <nav class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-widest text-deep-green">
+                SCAS
+            </div>
+            <div class="text-sm space-x-6 hidden sm:block">
+                <a href="#gaps" class="hover:text-deep-green transition duration-200">The Problems</a>
+                <a href="#solutions" class="hover:text-deep-green transition duration-200">The Solutions</a>
+                <a href="#contact" class="px-3 py-1 border border-deep-green rounded-md hover:bg-deep-green hover:text-pitch-black transition duration-300">Contact Advisory</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-[90vh] flex items-center justify-center text-center px-6 pt-16 pb-8 content-container-fade">
+            <div class="max-w-5xl">
+                <p class="text-lg font-medium tracking-wider text-deep-green uppercase mb-4">
+                    The Next Generation of Agricultural Intelligence
+                </p>
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight">
+                    From Guesswork to Data-Driven Decisions: <span class="text-deep-green/80">Smart Advisory for Small and Marginal Farmers</span>.
+                </h1>
+                <p class="text-lg text-gray-400 max-w-4xl mx-auto text-center mt-10">
+                    A majority of small and marginal farmers in India rely on traditional knowledge, local shopkeepers, or guesswork for crop selection, pest control, and fertilizer use. They critically lack access to personalized, real-time advisory services that account for their unique soil type, micro-weather conditions, and individual crop history. This reliance leads directly to poor yield, excessive input costs, and significant environmental degradation. Furthermore, language barriers and low digital literacy limit their access to modern agri-tech resources. Helping small farmers make informed decisions is essential. A smart advisory solution can empower them with scientific insights, leading to increased productivity and improved livelihoods. It directly contributes to Sustainable Agriculture by promoting optimal practices and reduces environmental harm by enabling Resource Optimization.
+                </p>
+            </div>
+        </section>
+
+        <!-- 1. The Gaps (4 Problem Cards) -->
+        <section id="gaps" class="py-20 md:py-32 bg-pitch-black px-6 lg:px-8 content-container-fade">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-5xl font-extrabold mb-16 text-center">
+                    Identifying <span class="text-gray-600">The Problems.</span>
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Gap Card 1: Data Fragmentation and Incompatibility -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Data Fragmentation and Incompatibility" data-text="There is no standardized platform or protocol for aggregating the diverse, essential data required for accurate advice. Critical information from government weather APIs, private satellite imagery, and on-farm sensor data remains disconnected, resulting in generic recommendations instead of truly personalized counsel." data-symbol-content="I" data-symbol-type="text">
+                        <div class="text-4xl text-deep-green mb-3 font-mono">I</div>
+                        <h3 class="text-xl font-semibold mb-2">Data Fragmentation</h3>
+                        <p class="text-gray-400 text-sm">Generic recommendations due to disconnected data sources.</p>
+                    </div>
+                    <!-- Gap Card 2: Lack of Predictive and Hyper-Granular Diagnostics -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Lack of Predictive and Hyper-Granular Diagnostics" data-text="Current models cannot deliver the specific, plot-level prescriptions needed to address key challenges like ensuring Climate Resilience and implementing effective Pest and Disease Forecasting. Solutions fail to generate the sub-acre, plot-specific prescriptions necessary to optimize inputs." data-symbol-content="II" data-symbol-type="text">
+                        <div class="text-4xl text-deep-green mb-3 font-mono">II</div>
+                        <h3 class="text-xl font-semibold mb-2">Hyper-Granular Gap</h3>
+                        <p class="text-gray-400 text-sm">Models lack plot-level, hyper-granular prescriptive power.</p>
+                    </div>
+                    <!-- Gap Card 3: The Usability and Literacy Gap -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="The Usability and Literacy Gap" data-text="A significant portion of the target demographic is hindered by low digital literacy and a reliance on native, often unwritten, languages. Existing app designs are not based on Farmer-Centric Design principles, being complex and text-heavy, which creates a profound barrier to access and use." data-symbol-content="III" data-symbol-type="text">
+                        <div class="text-4xl text-deep-green mb-3 font-mono">III</div>
+                        <h3 class="text-xl font-semibold mb-2">Literacy & Usability</h3>
+                        <p class="text-gray-400 text-sm">Low digital literacy and complex, non-centric app design.</p>
+                    </div>
+                    <!-- Gap Card 4: Trust, Financial Risk, and Adoption Barrier -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Trust, Financial Risk, and Adoption Barrier" data-text="Farmers are inherently risk-averse and unwilling to invest in technology with high upfront costs and unproven ROI. Current business models do not align the technology's success with the farmer's prosperity, thus failing to earn the necessary trust to replace generations of traditional knowledge and local relationships." data-symbol-content="IV" data-symbol-type="text">
+                        <div class="text-4xl text-deep-green mb-3 font-mono">IV</div>
+                        <h3 class="text-xl font-semibold mb-2">Risk & Adoption</h3>
+                        <p class="text-gray-400 text-sm">High risk, unproven ROI, and lack of alignment in business models.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bridge Text: Emphasizing the Solution -->
+        <section class="max-w-4xl mx-auto px-6 lg:px-8 py-20 bg-pitch-black content-container-fade">
+            <p class="text-3xl font-light text-center leading-relaxed text-gray-400">
+                <span class="text-deep-green font-semibold">Our comprehensive strategy directly addresses these systemic problems.</span> By unifying data, enabling hyper-granular insights, focusing on the farmer experience, and aligning financial outcomes, we transform risk into predictable profitability.
+            </p>
+        </section>
+
+        <!-- 3. The Solutions (4 System Features) -->
+        <section id="solutions" class="py-20 md:py-32 bg-pitch-black px-6 lg:px-8 content-container-fade">
+            <div class="max-w-7xl mx-auto">
+                 <h2 class="text-5xl font-extrabold mb-16 text-center">
+                    Delivering <span class="text-deep-green/80">The Proposed Solutions.</span>
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Solution Card 1: Data Harmonization and Standardization -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Solution 1: Data Harmonization and Standardization" data-text="We will develop a Data Harmonization API/Framework that securely unifies fragmented datasets (simulated soil, weather, and crop history) into a single, standardized feed. This is the foundation for creating a unified source of agricultural truth." data-symbol-content="<ellipse cx='12' cy='5' rx='9' ry='3'/><path d='M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5'/>" data-symbol-type="svg">
+                        <div class="text-4xl text-deep-green mb-3">
+                            <!-- Database Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Data Harmonization</h3>
+                        <p class="text-gray-400 text-sm">Unifying fragmented datasets into a single, standardized feed.</p>
+                    </div>
+                    <!-- Solution Card 2: Hyper-Granular Machine Learning Model -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Solution 2: Hyper-Granular Machine Learning Model" data-text="The standardized data feed will power a proprietary Machine Learning model designed for hyper-granular diagnosis. This enables the system to generate highly specific, actionable sub-acre prescriptions and real-time alerts for Pest and Disease Forecasting." data-symbol-content="<polyline points='22 7 13.5 15.5 8.5 10.5 2 17'/><polyline points='16 7 22 7 22 13'/>" data-symbol-type="svg">
+                         <div class="text-4xl text-deep-green mb-3">
+                            <!-- Trending Up Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Hyper-Granular ML</h3>
+                        <p class="text-gray-400 text-sm">Proprietary ML model for sub-acre, actionable prescriptions.</p>
+                    </div>
+                    <!-- Solution Card 3: Zero-Literacy, Farmer-Centric Interface -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Solution 3: Zero-Literacy, Farmer-Centric Interface" data-text="The advisory output will be delivered via a Zero-Literacy-First mobile interface prototype. This solution will rely on native language Text-to-Speech (TTS) functionality, large, universal icons, and voice-guided navigation, ensuring maximum accessibility and usability." data-symbol-content="<circle cx='12' cy='12' r='10'/><path d='M16.4 16.4A4 4 0 0 0 14 10h-4a4 4 0 0 0-2.4 6.4'/><path d='M12 2v2'/><path d='M12 20v2'/><path d='M22 12h-2'/><path d='M4 12H2'/>" data-symbol-type="svg">
+                        <div class="text-4xl text-deep-green mb-3">
+                            <!-- Accessibility Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-accessibility"><circle cx="12" cy="12" r="10"/><path d="M16.4 16.4A4 4 0 0 0 14 10h-4a4 4 0 0 0-2.4 6.4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M22 12h-2"/><path d="M4 12H2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Zero-Literacy UI</h3>
+                        <p class="text-gray-400 text-sm">TTS and voice-guided navigation for maximum accessibility.</p>
+                    </div>
+                     <!-- Solution Card 4: Outcome-Aligned "Success-Fee" Model (New Card) -->
+                    <div class="p-6 bg-black border border-gray-800 rounded-xl card-effect cursor-pointer" data-title="Solution 4: Outcome-Aligned 'Success-Fee' Model" data-text="To overcome the trust and financial barrier, the system will incorporate a conceptual 'Success-Fee' Advisory Model. The prototype will demonstrate the platform's revenue tied only to a small, pre-agreed percentage of the farmer's verified net gain, thereby guaranteeing a profitable, low-risk partnership." data-symbol-content="<circle cx='12' cy='12' r='10'/><path d='M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8'/><path d='M12 17.5v-11'/>" data-symbol-type="svg">
+                        <div class="text-4xl text-deep-green mb-3">
+                            <!-- Circle Dollar Sign Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-dollar-sign"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Success-Fee Model</h3>
+                        <p class="text-gray-400 text-sm">Revenue tied to verified farmer net gain for trust and adoption.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Conclusion Section -->
+        <section class="max-w-4xl mx-auto px-6 lg:px-8 py-16 content-container-fade">
+            <h2 class="text-3xl font-extrabold mb-6 text-deep-green text-center">Conclusion: A Sustainable Path Forward</h2>
+            <p class="text-xl leading-relaxed text-pure-white/90 text-center">
+                The successful development of this integrated Smart Crop Advisory System prototype, which combines Resource Optimization with Farmer-Centric Design and an outcome-aligned financial model, will demonstrate a sustainable path forward for agri-tech in the smallholder context. By addressing the critical needs for Pest and Disease Forecasting and building Climate Resilience, this project empowers farmers to transition from guesswork to data-driven decision-making, contributing significantly to both Sustainable Agriculture and national food security.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="max-w-7xl mx-auto px-6 lg:px-8 py-12 border-t border-gray-900 content-container-fade">
+            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+                <p>&copy; 2025 Smart Crop Advisory System. All Rights Reserved. | High-Integrity Build.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-deep-green transition duration-200">Privacy Policy</a>
+                    <a href="#" class="hover:text-deep-green transition duration-200">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Full-Screen Modal (Mandatory) -->
+    <div id="fullScreenModal" class="fixed inset-0 z-[100] overflow-y-auto">
+        
+        <!-- Modal Content Wrapper for scale animation, background, and padding -->
+        <div id="modalContentWrapper" class="max-w-3xl mx-auto md:py-10 min-h-screen">
+            
+            <div class="max-w-3xl mx-auto px-6 lg:px-8">
+                <!-- Close Button -->
+                <button id="closeModalBtn" class="absolute top-6 right-6 md:top-10 md:right-10 text-pure-white hover:text-deep-green transition duration-300 z-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+
+                <!-- Modal Title (Will expand and remain sticky) -->
+                <h2 id="modalTitle" class="text-center font-extrabold mb-10 mt-10"></h2>
+
+                <!-- Content Area for Delayed Fade-In (Subtitle, Text, Symbol, CTA) -->
+                <div id="modalContentArea" class="content-fade-area content-hidden pb-10">
+                    
+                    <!-- Subtitle: "Deep Dive Analysis" -->
+                    <h3 id="modalSubtitle" class="text-2xl font-semibold mb-6 pt-4 text-deep-green/80">Deep Dive Analysis</h3>
+
+                    <!-- Modal Text Container (Content will be generated here line-by-line) -->
+                    <div id="modalText" class="text-lg leading-relaxed text-pure-white/80 space-y-6">
+                        <!-- Content paragraphs will be dynamically injected here -->
+                    </div>
+
+                    <!-- Prominent Symbol Placeholder (After text) -->
+                    <div id="modalSymbol" class="text-deep-green my-12 text-center" style="filter: drop-shadow(0 0 8px rgba(10, 56, 20, 0.8));">
+                        <!-- Symbol will be injected here -->
+                    </div>
+
+                    <!-- Mandatory Footer CTA in Modal -->
+                    <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+                        <a href="#contact" id="modalCta" class="inline-block px-8 py-3 border border-deep-green bg-deep-green/10 text-deep-green rounded-lg hover:bg-deep-green hover:text-pitch-black transition duration-300 font-semibold text-xl">
+                            Implement This Solution
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

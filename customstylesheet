@@ -1,0 +1,109 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000; /* Pitch Black */
+    color: #ffffff; /* Pure White */
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar for aesthetic purposes */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0A3814; /* Very Deep Forest Green */
+    border-radius: 4px;
+}
+
+/* --- Coordinated Animation: Card Hover/Raise Effect --- */
+.card-effect {
+    transition: all 0.3s ease-out;
+    will-change: transform, box-shadow;
+}
+.card-effect:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(10, 56, 20, 0.4);
+    border-color: #0A3814;
+}
+
+/* --- MAIN CONTENT FADE-OUT STYLES --- */
+/* Targets the containers holding the sections to fade them out when modal opens */
+.content-container-fade {
+    transition: opacity 0.4s ease-out;
+}
+.content-faded {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+
+/* --- MODAL CONTAINER STYLES --- */
+#fullScreenModal {
+    /* Full transparency for the container. Content wrapper handles the color. */
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-color: transparent !important;
+}
+#fullScreenModal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* --- MODAL CONTENT & TITLE EXPANSION STYLES --- */
+#modalContentWrapper {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease-out;
+    transform: scale(0.9);
+    opacity: 0;
+    min-height: 100vh;
+    background-color: #000000; /* Solid background for the 'expanding card' look */
+    margin: 0 auto;
+    max-width: 100%;
+}
+#fullScreenModal.is-open #modalContentWrapper {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Title expansion effect: It grows from a smaller size to a huge size */
+#modalTitle {
+    transition: font-size 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s, opacity 0.5s ease-out 0.1s;
+    font-size: 2rem; /* Start size */
+    opacity: 0.6;
+    
+    /* STICKY HEADER STYLES */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #000000;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+#fullScreenModal.is-open #modalTitle {
+    font-size: 3.5rem; /* Final size mobile */
+    opacity: 1;
+}
+@media (min-width: 768px) {
+    #fullScreenModal.is-open #modalTitle {
+        font-size: 5rem; /* Final size desktop */
+    }
+}
+
+/* Content Area (Subtitle, Text, Symbol, CTA) initial state for single-block fade-in */
+.content-fade-area {
+    transition: opacity 0.6s ease-in;
+}
+.content-hidden {
+    opacity: 0;
+}
+
+
