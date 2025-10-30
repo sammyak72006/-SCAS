@@ -5,28 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Crop Advisory System | Technical Specification Build</title>
 
-    <script>
-    window.tailwind = window.tailwind || {};
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'pitch-black': '#000000',
-            'deep-green': '#0A3814',
-            'pure-white': '#ffffff'
-          }
-        }
-      }
-    }
-  </script>
+    
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-  <style>
-    /* Styles for Card Hover Effect (The "raising" effect) */
-    .card-effect {
+ <style>
+/* 1. Reset and Base Tailwind Styles (Generated and embedded locally) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@layer base {
+  /* This is the Tailwind Preflight/Reset */
+  html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}button,select{text-transform:none}button,[type='button'],[type='reset'],[type='submit']{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-focusring{outline:1px dotted ButtonText}:-webkit-inner-spin-button,:-webkit-outer-spin-button{height:auto}[type='search']{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role="button"],button{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}
+}
+/* 2. Custom Tailwind Classes (Compiled from your config) */
+.bg-pitch-black{background-color:#000}
+.text-pure-white{color:#fff}
+.bg-pitch-black\/95{background-color:rgba(0,0,0,0.95)}
+.text-deep-green{color:#0A3814}
+.border-deep-green{border-color:#0A3814}
+.hover\:text-deep-green:hover{color:#0A3814}
+.hover\:bg-deep-green:hover{background-color:#0A3814}
+.hover\:text-pitch-black:hover{color:#000}
+.text-deep-green\/80{color:rgba(10,56,20,0.8)}
+.bg-deep-green\/10{background-color:rgba(10,56,20,0.1)}
+.text-pure-white\/90{color:rgba(255,255,255,0.9)}
+/* 3. Your Custom Styles (Moved inside the same block) */
+.card-effect {
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
     }
     .card-effect:hover {
@@ -34,17 +39,13 @@
       box-shadow: 0 0 15px rgba(10, 56, 20, 0.5);
       border-color: #0A3814;
     }
-
-    /* Styles for Background Fade Effect */
     .content-container-fade {
       transition: opacity 0.5s ease-in-out;
     }
     .content-faded {
       opacity: 0.12;
-      pointer-events: none; /* Disables clicks on background elements */
+      pointer-events: none;
     }
-
-    /* Styles for Modal Content Fade Effect */
     .content-fade-area {
       transition: opacity 0.35s ease-in-out, transform 0.35s ease;
       transform: translateY(8px);
@@ -57,20 +58,134 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Modal Overlay Visibility Fix: Hides initially via opacity/visibility */
     .modal-overlay {
       transition: opacity 0.25s ease, visibility 0.25s ease;
       opacity: 0;
       visibility: hidden;
     }
-
-    /* Class added by JS to make modal visible */
     .modal-overlay.modal-is-open {
       opacity: 1;
       visibility: visible;
     }
-  </style>
+/* 4. Utility Classes (The rest of Tailwind needed) - Not all included, but the common ones are */
+.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.relative{position:relative}
+.fixed{position:fixed}
+.absolute{position:absolute}
+.top-0{top:0}
+.top-6{top:1.5rem}
+.top-10{top:2.5rem}
+.right-6{right:1.5rem}
+.right-10{right:2.5rem}
+.inset-0{inset:0}
+.z-50{z-index:50}
+.z-\[100\]{z-index:100}
+.mx-auto{margin-left:auto;margin-right:auto}
+.my-12{margin-top:3rem;margin-bottom:3rem}
+.mt-4{margin-top:1rem}
+.mt-10{margin-top:2.5rem}
+.mb-2{margin-bottom:0.5rem}
+.mb-3{margin-bottom:0.75rem}
+.mb-4{margin-bottom:1rem}
+.mb-6{margin-bottom:1.5rem}
+.mb-8{margin-bottom:2rem}
+.mb-16{margin-bottom:4rem}
+.mr-auto{margin-right:auto}
+.ml-auto{margin-left:auto}
+.flex{display:flex}
+.block{display:block}
+.inline-block{display:inline-block}
+.grid{display:grid}
+.hidden{display:none}
+.h-\[90vh\]{height:90vh}
+.min-h-\[90vh\]{min-height:90vh}
+.w-full{width:100%}
+.max-w-4xl{max-width:56rem}
+.max-w-5xl{max-width:64rem}
+.max-w-7xl{max-width:80rem}
+.flex-col{flex-direction:column}
+.items-center{align-items:center}
+.justify-center{justify-content:center}
+.justify-between{justify-content:space-between}
+.space-x-4>*{margin-right:1rem;--tw-space-x-reverse:0;margin-right:calc(1rem*(1-var(--tw-space-x-reverse)));margin-left:calc(1rem*var(--tw-space-x-reverse))}
+.space-x-6>*{margin-right:1.5rem;--tw-space-x-reverse:0;margin-right:calc(1.5rem*(1-var(--tw-space-x-reverse)));margin-left:calc(1.5rem*var(--tw-space-x-reverse))}
+.space-y-6>*{margin-top:1.5rem;--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1-var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}
+.gap-8{gap:2rem}
+.gap-card{gap:1rem}
+.rounded-md{border-radius:0.375rem}
+.rounded-lg{border-radius:0.5rem}
+.rounded-xl{border-radius:0.75rem}
+.border{border-width:1px}
+.border-t{border-top-width:1px}
+.border-b{border-bottom-width:1px}
+.border-gray-800{border-color:#1f2937}
+.border-gray-900{border-color:#111827}
+.bg-black{background-color:#000}
+.px-3{padding-left:0.75rem;padding-right:0.75rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.py-1{padding-top:0.25rem;padding-bottom:0.25rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}
+.py-12{padding-top:3rem;padding-bottom:3rem}
+.py-16{padding-top:4rem;padding-bottom:4rem}
+.py-20{padding-top:5rem;padding-bottom:5rem}
+.pt-8{padding-top:2rem}
+.pt-16{padding-top:4rem}
+.pb-8{padding-bottom:2rem}
+.pb-20{padding-bottom:5rem}
+.pt-4{padding-top:1rem}
+.pb-5{padding-bottom:1.25rem}
+.text-left{text-align:left}
+.text-center{text-align:center}
+.text-sm{font-size:0.875rem;line-height:1.25rem}
+.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-2xl{font-size:1.5rem;line-height:2rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-4xl{font-size:2.25rem;line-height:2.5rem}
+.text-5xl{font-size:3rem;line-height:1}
+.text-6xl{font-size:3.75rem;line-height:1}
+.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+.font-light{font-weight:300}
+.font-medium{font-weight:500}
+.font-semibold{font-weight:600}
+.font-bold{font-weight:700}
+.font-extrabold{font-weight:800}
+.leading-tight{line-height:1.25}
+.leading-relaxed{line-height:1.625}
+.tracking-wider{letter-spacing:0.05em}
+.tracking-widest{letter-spacing:0.1em}
+.uppercase{text-transform:uppercase}
+.italic{font-style:italic}
+.text-gray-400{color:#9ca3af}
+.text-gray-500{color:#6b7280}
+.text-gray-600{color:#4b5563}
+.hover\:text-gray-500:hover{color:#6b7280}
+.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}
+.duration-200{transition-duration:200ms}
+.duration-300{transition-duration:300ms}
+.overflow-y-auto{overflow-y:auto}
+.cursor-pointer{cursor:pointer}
+.backdrop-blur-sm{backdrop-filter:blur(4px)}
+.sticky{position:sticky}
+.md\:py-32{padding-top:8rem;padding-bottom:8rem}
+.md\:pt-20{padding-top:5rem}
+.md\:right-10{right:2.5rem}
+.md\:top-10{top:2.5rem}
+@media (min-width: 640px){
+.sm\:block{display:block}
+.sm\:text-2xl{font-size:1.5rem;line-height:2rem}
+.sm\:text-5xl{font-size:3rem;line-height:1}
+.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width: 768px){
+.md\:flex-row{flex-direction:row}
+.md\:text-8xl{font-size:6rem;line-height:1}
+}
+@media (min-width: 1024px){
+.lg\:px-8{padding-left:2rem;padding-right:2rem}
+.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+</style>
 </head>
 <body class="bg-pitch-black text-pure-white antialiased">
 
@@ -353,4 +468,5 @@
   </script>
 </body>
 </html>
+
 
