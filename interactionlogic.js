@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     // DOM Element References
     const modal = document.getElementById('fullScreenModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeElements = document.querySelectorAll('.content-container-fade');
 
     // Animation timing variables (Must match CSS transitions for smooth sync)
-    const titleAnimationTime = 500; // 0.5s
+    const titleAnimationTime = 500; // 0.5s for title transition
     const contentBaseDelay = 200; // Delay after title settles before content starts
     const textStaggerTime = 100; // Delay between each line/paragraph fade-in
 
@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         modalText.innerHTML = ''; // Clear previous text content
         
         // 3. Open modal wrapper and disable body scroll
-        modal.classList.remove('hidden'); // <-- ADD THIS LINE to allow visibility transitions
+        // CRITICAL: Remove 'hidden' to make the modal block visible, then add 'is-open' for animation
+        modal.classList.remove('hidden'); 
         modal.classList.add('is-open');
         document.body.style.overflow = 'hidden';
 
@@ -43,12 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Populate Text Content (line-by-line fade)
             // Split text into potential sentences/paragraphs for line-by-line effect
-            // We split by ". " and re-add the period later to ensure text segments make sense
             const sentences = text.split('. ').map(s => s.trim()).filter(s => s.length > 0);
             
             sentences.forEach((sentence, index) => {
                 const p = document.createElement('p');
-                // Re-add the period that was split off (or a default period)
+                // Re-add the period that was split off
                 p.textContent = sentence + (text.endsWith('.') && index === sentences.length - 1 ? '' : '.'); 
                 
                 // Set initial opacity to 0 and apply transition classes
@@ -96,7 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.body.style.overflow = '';
             modal.scrollTop = 0; // Reset scroll position for next open
-
+            
+            // CRITICAL FIX: Add 'hidden' back after the closing animation completes to fully hide the overlay
+            modal.classList.add('hidden'); 
+            
             // Fade in card grids and other content
             fadeElements.forEach(el => el.classList.remove('content-faded'));
         }, titleAnimationTime); 
@@ -106,20 +109,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Listener for all cards to open the modal
     cards.forEach(card => {
-        card.addEventListener('click', () => {
-            // FIX: Use .dataset for attributes starting with 'data-' and use camelCase
-            const title = card.dataset.title;
-            const text = card.dataset.text;
-            const symbolContent = card.dataset.symbolContent; 
-            const symbolType = card.dataset.symbolType;        
-            openModal(title, text, symbolContent, symbolType);
-        });
-    });
+        card.addEventListener('click', () => {
+            // Using .dataset for cleaner access to data attributes
+            const title = card.dataset.title;
+            const text = card.dataset.text;
+            const symbolContent = card.dataset.symbolContent;
+            const symbolType = card.dataset.symbolType;
+            openModal(title, text, symbolContent, symbolType);
+        });
+    });
 
     // Event listeners for closing the modal
     closeModalBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
-        // Close if clicking outside the modal content wrapper
+        // Close if clicking directly on the modal background/wrapper
         if (e.target === modal) {
             closeModal();
         }
@@ -131,5 +134,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
+      
