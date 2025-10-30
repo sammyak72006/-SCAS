@@ -105,14 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Listener for all cards to open the modal
     cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const title = card.getAttribute('data-title');
-            const text = card.getAttribute('data-text');
-            const symbolContent = card.getAttribute('data-symbol-content');
-            const symbolType = card.getAttribute('data-symbol-type');
-            openModal(title, text, symbolContent, symbolType);
-        });
-    });
+        card.addEventListener('click', () => {
+            // FIX: Use .dataset for attributes starting with 'data-' and use camelCase
+            const title = card.dataset.title;
+            const text = card.dataset.text;
+            const symbolContent = card.dataset.symbolContent; 
+            const symbolType = card.dataset.symbolType;        
+            openModal(title, text, symbolContent, symbolType);
+        });
+    });
 
     // Event listeners for closing the modal
     closeModalBtn.addEventListener('click', closeModal);
@@ -129,3 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
